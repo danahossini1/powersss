@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1251" height="1251" viewBox="0 0 1251 1251">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="347.009" y1="1251" x2="903.991" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f39" stop-opacity="0.996"/>
+      <stop offset="1" stop-color="#ffad00"/>
+    </linearGradient>
+    <filter id="filter" x="235" y="267.063" width="861" height="729.937" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#fff"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" className="cls-1" width="1251" height="1251" rx="123" ry="123"/>
+  <path className="cls-2" d="M235,506l31-86s33.322-113.13,135-141c61-16.721,227-11,227-11l468,2s-8.49,26.307-21,61c-16.34,45.306-37.83,102.992-89,138-53.063,36.3-117.928,35.263-168,36-32.309.475-58,2-58,2L639,850s-17.347,94.769-83,128c-38.535,19.5-105,19-105,19H318L437,652s19.628-70.167,53-104c38.728-39.262,92-43,92-43Z" transform="translate(-1 -1)"/>
+</svg>

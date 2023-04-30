@@ -6,14 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "@next-auth/mongodb-adapter": "^1.1.3",
     "autoprefixer": "10.4.14",
+    "bcryptjs": "^2.4.3",
+    "dotenv-safe": "^8.2.0",
+    "emoji-flags-to-country": "^2.4.2",
+    "flagit": "^2.0.6",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.0.3",
     "next": "13.3.0",
+    "next-auth": "^4.22.1",
+    "persian-utilities": "^1.1.1",
     "postcss": "8.4.21",
     "react": "18.2.0",
+    "react-countries-flags": "^1.2.4",
     "react-dom": "18.2.0",
+    "sweetalert": "^2.1.2",
     "tailwindcss": "3.3.1"
   }
 }

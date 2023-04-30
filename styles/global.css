@@ -1,0 +1,36 @@
+@font-face {
+  font-family: lalezar;
+  src: url(../public/Font/Dirooz.ttf);
+  src: url(../public/Font/Dirooz.woff);
+  src: url(../public/Font/Dirooz.woff2);
+}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .ltr {
+    direction: ltr;
+  }
+  .rtl{
+    direction: rtl;
+    
+  }
+
+}
+
+:root {
+  direction: rtl;
+  color: rgb(68, 68, 68);
+  font-family: lalezar;
+  font-weight: 100;
+  max-width: 1500px;
+  margin: auto;
+}
+
+iframe>path {
+  width: 100%;
+}
