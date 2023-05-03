@@ -106,14 +106,22 @@ export default function SignUp({ setIsSignInShow, setIsSignUpShow }) {
                     <i onClick={() => {
                         setIsSignUpShow(false)
                         clearValue()
-                    }} className="fa-solid fa-regular fa-xmark text-end px-3 text-2xl text-red-600"></i>
+                    }} className="text-end px-3 text-2xl text-red-600"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7">
+                            <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+                        </svg>
+                    </i>
                     <h1 className='font-bold dark:text-slate-100'>ثبت نام</h1>
                     <button onClick={() => {
                         setIsSignInShow(true)
                         setIsSignUpShow(false)
                         clearValue()
                     }} className="flex items-center gap-2 bg-blue-500 p-1 px-2 text-sm rounded-xl text-stone-100 ">
-                        <span className='fa-solid far fa-sign-in'></span>ورود
+                        <span className=''><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                            <path fillRule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clipRule="evenodd" />
+                            <path fillRule="evenodd" d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z" clipRule="evenodd" />
+                        </svg>
+
+                        </span>ورود
                     </button>
                 </div>
                 <div className="flex bg-slate-200  dark:bg-gray-400 m-1 my-6 mx-4 overflow-hidden rounded-md">
@@ -121,8 +129,11 @@ export default function SignUp({ setIsSignInShow, setIsSignUpShow }) {
                         setfullName(e.target.value)
                         validationData({ key: 'fullName', value: e.target.value })
                     }} type="text" id="website-admin" className="rounded-none rounded-r-l dark:placeholder-slate-100 text-black focus:outline-0 block flex-1 min-w-0 w-full text-sm p-2.5 bg-inherit" placeholder="نام " />
-                    <span className="inline-flex items-center px-3 text-sm rounded-l-md " >
-                        <i className={`fa-sharp fa-solid fa-pen ${fullNameValid ? 'text-green-600' : 'text-red-600'} text-xl`}></i>
+                    <span className={`inline-flex items-center px-3 text-sm rounded-l-md ${fullNameValid ? 'text-green-600' : 'text-red-600'}`} >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                        </svg>
                     </span>
                 </div>
                 <div className="flex bg-slate-200  dark:bg-gray-400 m-1 my-6 mx-4 overflow-hidden rounded-md">
@@ -130,8 +141,10 @@ export default function SignUp({ setIsSignInShow, setIsSignUpShow }) {
                         setUserName(e.target.value)
                         validationData({ key: 'userName', value: e.target.value })
                     }} type="text" id="website-admin" className="rounded-none rounded-r-l dark:placeholder-slate-100 text-black focus:outline-0 block flex-1 min-w-0 w-full text-sm p-2.5 bg-inherit" placeholder="نام کاربری " />
-                    <span className="inline-flex items-center px-3 text-sm rounded-l-md " >
-                        <i className={`fa-solid fa-at ${userNameValid ? 'text-green-600' : 'text-red-600'} text-xl`}></i>
+                    <span className={`inline-flex items-center px-3 text-sm rounded-l-md  ${userNameValid ? 'text-green-600' : 'text-red-600'}`} >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                            <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                        </svg>
                     </span>
                 </div>
                 <div className="flex bg-slate-200  dark:bg-gray-400 m-1 my-6 mx-4 overflow-hidden rounded-md">
@@ -139,8 +152,11 @@ export default function SignUp({ setIsSignInShow, setIsSignUpShow }) {
                         setEmail(e.target.value)
                         validationData({ key: 'email', value: e.target.value })
                     }} type="text" id="website-admin" className="rounded-none rounded-r-l dark:placeholder-slate-100 text-black focus:outline-0 block flex-1 min-w-0 w-full text-sm p-2.5 bg-inherit" placeholder="ایمیل " />
-                    <span className="inline-flex items-center px-3 text-sm rounded-l-md " >
-                        <i className={`fa-solid fa-envelope ${emailValid ? 'text-green-600' : 'text-red-600'} text-xl`}></i>
+                    <span className={`inline-flex items-center px-3 text-sm rounded-l-md  ${emailValid ? 'text-green-600' : 'text-red-600'}`} >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                        </svg>
                     </span>
                 </div>
                 <div className="flex bg-slate-200  dark:bg-gray-400 m-1 my-6 mx-4 overflow-hidden rounded-md">
@@ -148,8 +164,10 @@ export default function SignUp({ setIsSignInShow, setIsSignUpShow }) {
                         setPassword(e.target.value)
                         validationData({ key: 'password', value: e.target.value })
                     }} type="text" id="website-admin" className="rounded-none rounded-r-l dark:placeholder-slate-100 text-black focus:outline-0 block flex-1 min-w-0 w-full text-sm p-2.5 bg-inherit" placeholder="رمز عبور" />
-                    <span className="inline-flex items-center px-3 text-sm rounded-l-md " >
-                        <i className={`fa-solid fa-lock ${passwordValid ? 'text-green-600' : 'text-red-600'} text-xl`}></i>
+                    <span className={`inline-flex items-center px-3 text-sm rounded-l-md  ${passwordValid ? 'text-green-600' : 'text-red-600'}`} >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                            <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clipRule="evenodd" />
+                        </svg>
                     </span>
                 </div>
                 <div className='flex p-3 justify-between'>

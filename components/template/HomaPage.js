@@ -45,7 +45,7 @@ export default function HomaPage({ props }) {
             <div>
                 <Image className='m-auto' src='/img/logo.png' alt='logo' width={400} height={300} />
             </div>
-            <div id='buy' className='bg-[#f5f5f5] dark:bg-gray-600 shadow-xl ltr p-2 mx-4 md:flex md:mx-12 rounded-2xl'>
+            <div id='buy' className='bg-[#f5f5f5] dark:bg-gray-600 shadow-xl ltr p-2 md:flex md:mx-12 rounded-2xl'>
                 <div className=' md:w-1/2 mb-16'>
 
                     <div className=' m-auto mt-8'>
@@ -71,33 +71,33 @@ export default function HomaPage({ props }) {
                                         <table className='w-full'>
                                             <thead>
                                                 <th className='flex w-full text-sm mi:text-base justify-around   '>
-                                                    <td className='mi:w-1/4 w-1/3 text-start'>کشور</td>
-                                                    <td className='mi:w-1/4 w-1/3 text-start'>قیمت</td>
-                                                    <td className='mi:w-1/4 w-1/3 text-start'>موجودی</td>
-                                                    <td className='hidden mi:block mi:w-1/4 w-1/3 text-start'></td>
+                                                    <td className='mi:w-1/4 w-1/3 '>کشور</td>
+                                                    <td className='mi:w-1/4 w-1/3 '>قیمت</td>
+                                                    <td className='mi:w-1/4 w-1/3 '>موجودی</td>
+                                                    <td className=' mi:w-1/4 w-1/3 '></td>
                                                 </th>
                                             </thead>
                                             <tbody className='text-sm font-bold '>
                                                 {categoryData.map(item =>
-                                                    <tr key={item.id} className='flex items-center w-full bg-gray-200 dark:bg-gray-600 flex-wrap my-2 py-3 rounded-md justify-around '>
-                                                        <td className='flex items-center mi:w-1/4 gap-2 w-1/3'>
+                                                    <tr key={item.id} className='flex items-center w-full bg-gray-200 dark:bg-gray-600 flex-wrap my-2 py-2 rounded-md justify-around '>
+                                                        <td className='flex items-center flex-col mi:w-1/4 gap-2 w-1/4'>
                                                             <img className='w-6 h-6'
                                                                 src={props.country.filter(country => country.id === item.country)[0].image}
                                                                 alt="" />
-                                                            <h2 className="text-[3.8vw] mi:text-base">
+                                                            <h2 className="text-xs lg:text-sm">
                                                                 {props.country.filter(country => country.id === item.country)[0].name}
                                                             </h2>
                                                         </td>
-                                                        <td className='mi:w-1/4 w-1/3 text-sm'>
+                                                        <td className='mi:w-1/4 mi:text-xs lg:text-base w-1/4 text-sm flex flex-col items-center'>
 
-                                                            {convertDigitsEnToFa(numericalSeparator(item.amount.toString(), 3, ','))} <span className='text-xs text-slate-600 dark:text-slate-300'> تومان</span>
+                                                            {convertDigitsEnToFa(numericalSeparator(item.amount.toString(), 3, ','))} <span className='text-[10px] text-slate-600 dark:text-slate-300'> تومان</span>
                                                         </td>
-                                                        <td className='mi:w-1/4 w-1/3'>
+                                                        <td className='mi:w-1/4 mi:text-xs lg:text-base w-1/4 flex flex-col items-center'>
 
-                                                            {convertDigitsEnToFa(numericalSeparator(item.count.toString(), 3, ','))} <span className='text-xs text-slate-600 dark:text-slate-300'> عدد</span>
+                                                            {convertDigitsEnToFa(numericalSeparator(item.count.toString(), 3, ','))} <span className='text-[10px] text-slate-600 dark:text-slate-300'> عدد</span>
                                                         </td>
                                                         <td className='mi:w-1/6'>
-                                                            <button onClick={BuyHandler} className='p-1 px-3 mt-4 mi:mt-0 text-xs mi:text-sm rounded-lg bg-blue-600 text-white '>خرید</button>
+                                                            <button onClick={BuyHandler} className='p-1 px-3 mt- mi:mt-0 text-xs mi:text-sm rounded-lg bg-blue-600 text-white '>خرید</button>
                                                         </td>
                                                     </tr>
                                                 )}

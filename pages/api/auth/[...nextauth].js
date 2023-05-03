@@ -54,8 +54,7 @@ const optionPath = {
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET
         })
-    ]
-
+    ],
 }
 
 export default NextAuth(optionPath)

@@ -18,7 +18,7 @@ export default function Layout({ children }) {
     return (
         <div className={`${darkMode ? 'dark' : ''} `}>
 
-            <div className='bg-[#e3ecfd] dark:bg-gray-700 '>
+            <div className='bg-[#e3ecfd] dark:bg-gray-700 min-h-screen '>
                 <Head>
                     <title>شماره مجازی</title>
                     <link rel="shortcut icon" href="../img/icon.png" />
