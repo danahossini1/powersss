@@ -11,16 +11,19 @@ export default async function handler(req, res) {
         } catch (err) {
             res.status(402).json("Error in connected to database")
         }
-        const { userName, comment } = req.body
+        const { userName, comment, email, type } = req.body
 
         if (!userName || !comment) return res.status(401).json("data is undefind")
 
         const newComment = {
             userName,
             comment,
+            email,
+            types:type,
             ok: false,
-            answer: "0"
+            answer: "0",
         }
+        console.log(newComment);
 
         try {
             const comment = Comment.create(newComment)

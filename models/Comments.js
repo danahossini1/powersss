@@ -6,6 +6,7 @@ const commentSchema = new Schema({
         type: String,
 
     },
+    email: String,
     comment: {
         type: String,
         minLength: 3
@@ -13,6 +14,7 @@ const commentSchema = new Schema({
     answer: {
         type: String
     },
+    types: String,
     ok: Boolean,
     createAt: {
         type: Date,

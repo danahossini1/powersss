@@ -1,9 +1,4 @@
-@font-face {
-  font-family: Dirooz;
-  src: url('../public/fonts/Dirooz.ttf') format('truetype'),
-    url('../public/fonts/Dirooz.woff') format('woff'),
-    url('../public/fonts/Dirooz.woff2') format('woff2');
-}
+
 
 @tailwind base;
 @tailwind components;
@@ -22,29 +17,8 @@
 }
 
 :root {
-  direction: rtl;
-  color: rgb(68, 68, 68);
-  font-family: Dirooz;
   font-weight: 500;
   max-width: 1500px;
   margin: auto;
 }
 
-.bg-gradient1-dark {
-  background: rgb(0, 69, 203);
-  background: linear-gradient(164deg, rgba(0, 69, 203, 1) 0%, rgba(0, 31, 226, 1) 52%, rgba(15, 30, 196, 1) 100%);
-}
-
-.bg-gradient2-dark {
-  background: rgb(78, 0, 203);
-  background: linear-gradient(164deg, rgba(78, 0, 203, 1) 0%, rgba(132, 0, 255, 1) 52%, rgba(137, 34, 255, 1) 100%);
-}
-.bg-gradient1-light {
-  background: rgb(0, 69, 203);
-  background: linear-gradient(164deg, rgba(0, 69, 203, 1) 0%, rgba(0, 31, 226, 1) 52%, rgba(15, 30, 196, 1) 100%);
-}
-
-.bg-gradient2-light {
-  background: rgb(78, 0, 203);
-  background: linear-gradient(164deg, rgba(78, 0, 203, 1) 0%, rgba(132, 0, 255, 1) 52%, rgba(137, 34, 255, 1) 100%);
-}

@@ -85,8 +85,8 @@ export default function AdminPage() {
 
     }
 
-    const commentSwal = (comment, answer) => {
-        swal(`کامنت: ${comment}\n \n ${answer === '0' ? 'بدون پاسخ' : `پاسخ: ${answer}`}`)
+    const commentSwal = (comment, answer, types) => {
+        swal(` عنوان : ${types} \n \n کامنت: ${comment}\n \n ${answer === '0' ? 'بدون پاسخ' : `پاسخ: ${answer}`}`)
     }
 
     const deleteComment = id => {
@@ -258,11 +258,11 @@ export default function AdminPage() {
                                 <tbody>
                                     {allComments.map(comment =>
                                         <tr key={comment._id} className="bg-white border-b text-start dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <th scope="row" className={`${comment.types ? 'border-2 border-green-500' : ''} px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
                                                 {comment.userName}
                                             </th>
                                             <td className="px-6 py-4">
-                                                <button onClick={() => commentSwal(comment.comment, comment.answer)} className='bg-blue-500 hover:bg-blue-700 text-white p-1  px-2 rounded-sm'>نمایش</button>
+                                                <button onClick={() => commentSwal(comment.comment, comment.answer, comment.types)} className='bg-blue-500 hover:bg-blue-700 text-white p-1  px-2 rounded-sm'>نمایش</button>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <button onClick={() => answerComment(comment._id)} className='bg-blue-500 hover:bg-blue-700 text-white p-1  px-2 rounded-sm'>پاسخ</button>

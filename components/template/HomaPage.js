@@ -1,121 +1,143 @@
-import React, { useEffect, useState } from 'react'
-import { convertDigitsEnToFa } from 'persian-utilities';
-import { numericalSeparator } from 'persian-utilities';
-import Image from 'next/image';
-import { useSession } from 'next-auth/react';
-import swal from 'sweetalert';
+import MessageForm from '../module/MessageForm';
+import Typewriter from 'typewriter-effect';
 
-export default function HomaPage({ props }) {
 
-    const [showingCategory, setShowingCategory] = useState(null)
-    const [categoryData, setCategoryData] = useState([])
+export default function HomaPage() {
 
-    const [isLogeIn, setIsLogeIn] = useState(false)
-    const { status } = useSession()
 
-    const itemShow = async (id) => {
 
-        setCategoryData([])
-        setShowingCategory((before) => before === id ? null : id)
-
-        if (showingCategory !== id) {
-
-            try {
-                const res = await fetch(`/api/numberByServis/${id}`)
-                const data = await res.json()
-                setCategoryData(data.data.sort(() => 0.5 - Math.random()))
-
-            } catch (err) { console.log(err) }
-        }
-    }
-
-    useEffect(() => {
-        if (status === 'authenticated') {
-            setIsLogeIn(true)
-        }
-    }, [status])
-
-    const BuyHandler = () => {
-
-        !isLogeIn ? swal("برای خرید شماره باید ثبت نام کنید") : swal("این بخش تا اطلاع ثانویه غیر فعال است 🌹❤")
-    }
 
     return (
-        <div>
-            <div>
-                <Image className='m-auto' src='/img/logo.png' alt='logo' width={400} height={300} />
+        <div className=" mb-10">
+
+            <div className="text-2xl md:text-5xl text-center my-20 pt-20 px-4 md:px-8 ">
+
+                <h1 className='max-w-5xl cursor-default m-auto'><Typewriter onInit={tyoewriter => {
+                    tyoewriter.typeString(' Unleash Your Potential with Power Society : Be a Catalyst for Change')
+                        .start()
+                        .pauseFor(5000)
+                        .deleteAll()
+                }} options={{
+                    loop: true,
+                    delay: 80
+                }}
+                /></h1>
+
             </div>
-            <div id='buy' className='bg-[#f5f5f5] dark:bg-gray-600 shadow-xl ltr p-2 md:flex md:mx-12 rounded-2xl'>
-                <div className=' md:w-1/2 mb-16'>
 
-                    <div className=' m-auto mt-8'>
-                        <svg className='w-full text-white m-auto mb-8 md:h-40' data-v-1fdc8238="" width="471" height="100" viewBox="0 0 471 198" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-1fdc8238="" d="M258.16 26.87C264.948 26.87 270.45 21.3676 270.45 14.58C270.45 7.79246 264.948 2.29004 258.16 2.29004C251.372 2.29004 245.87 7.79246 245.87 14.58C245.87 21.3676 251.372 26.87 258.16 26.87Z" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M269.74 10.4701H258.16" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M246.07 16.78H261.82" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M261.6 152.89L247.71 152.9" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M254.65 145.95L254.66 159.84" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M307.87 77.3401L322.12 91.5901" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M409 133.81L398 132.33L387.05 130.85C384.7 130.53 385.73 127.21 387.15 126.5L387.29 126.42L394.1 120.94C394.717 120.432 395.138 119.725 395.29 118.94L397.43 108C397.801 106.04 398.646 104.2 399.89 102.64L399.96 102.55C400.209 102.212 400.544 101.947 400.931 101.783C401.318 101.619 401.742 101.562 402.158 101.618C402.574 101.674 402.968 101.842 403.297 102.102C403.627 102.363 403.88 102.708 404.03 103.1L404.08 103.21C404.846 105.038 405.162 107.024 405 109L404.15 120.09C404.081 120.889 404.297 121.686 404.76 122.34L409.87 129.44L409.98 129.56C411.19 130.66 411.3 134.13 409 133.81Z" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M399.12 136.39L396.12 135.98C395.8 135.913 395.497 135.78 395.232 135.588C394.967 135.397 394.745 135.151 394.581 134.868C394.416 134.585 394.314 134.271 394.279 133.946C394.245 133.62 394.279 133.291 394.38 132.98L396.29 125.98C396.442 125.314 396.828 124.725 397.38 124.321C397.931 123.916 398.609 123.725 399.29 123.78C399.969 123.901 400.582 124.265 401.012 124.804C401.443 125.343 401.662 126.021 401.63 126.71V133.99C401.642 134.318 401.585 134.645 401.462 134.949C401.339 135.253 401.152 135.528 400.915 135.755C400.678 135.982 400.395 136.156 400.086 136.265C399.776 136.375 399.447 136.417 399.12 136.39Z" fill="" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M88.89 148.29C91.2482 148.29 93.16 146.378 93.16 144.02C93.16 141.662 91.2482 139.75 88.89 139.75C86.5317 139.75 84.62 141.662 84.62 144.02C84.62 146.378 86.5317 148.29 88.89 148.29Z" fill="#000000"></path> <path data-v-1fdc8238="" d="M183.3 88.33C186.967 88.33 189.94 85.3572 189.94 81.69C189.94 78.0229 186.967 75.05 183.3 75.05C179.633 75.05 176.66 78.0229 176.66 81.69C176.66 85.3572 179.633 88.33 183.3 88.33Z" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M455.29 180.27L469.54 194.52" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M455.29 194.52L469.54 180.27" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M126.35 13.48L112.45 13.49" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M119.39 6.54004L119.4 20.43" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M12.4299 175.34V195.49" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M2.34998 185.42H22.5" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M329.89 191.67C332.248 191.67 334.16 189.758 334.16 187.4C334.16 185.042 332.248 183.13 329.89 183.13C327.532 183.13 325.62 185.042 325.62 187.4C325.62 189.758 327.532 191.67 329.89 191.67Z" fill="#000000"></path> <path data-v-1fdc8238="" d="M371.53 12.53L357.63 12.54" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M364.57 5.58008L364.58 19.4801" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10" strokeLinecap="round"></path> <path data-v-1fdc8238="" d="M158.88 195.83C164.325 195.83 168.74 191.416 168.74 185.97C168.74 180.525 164.325 176.11 158.88 176.11C153.434 176.11 149.02 180.525 149.02 185.97C149.02 191.416 153.434 195.83 158.88 195.83Z" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M168.5 183.84C175.71 184.26 178.95 185.26 178.95 186.42C178.95 187.97 169.95 189.22 158.88 189.22C147.81 189.22 138.81 187.97 138.81 186.42C138.81 185.27 142.09 184.27 149.23 183.84" stroke="#000000" strokeWidth="2.14" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M39.25 81.69C44.6955 81.69 49.11 77.2755 49.11 71.83C49.11 66.3844 44.6955 61.97 39.25 61.97C33.8045 61.97 29.39 66.3844 29.39 71.83C29.39 77.2755 33.8045 81.69 39.25 81.69Z" stroke="#000000" strokeWidth="2.88" strokeMiterlimit="10"></path> <path data-v-1fdc8238="" d="M46.46 65.12C52.89 61.84 56.19 61.05 56.78 62.05C57.56 63.39 50.45 69.05 40.89 74.64C31.33 80.23 23 83.72 22.17 82.38C21.58 81.38 23.91 78.87 29.85 74.89" stroke="#000000" strokeWidth="2.14" strokeMiterlimit="10"></path></svg>
-                    </div>
-
-                    <p className='text-center text-[#754835] dark:text-[#dab643] text-sm'>شماره فعالی برای نمایش وجود ندارد</p>
-                    <p className='text-center text-[#754835] dark:text-[#dab643] text-sm'>از قسمت خرید شماره خود را انتخاب کنید</p>
-                </div>
-                <div className=' m-4 md:w-1/2 max-w-lg rtl ' id="accordion-collapse" data-accordion="collapse">
-
-                    {props.servises.map(item =>
-                        <div key={item.id} className='mt-4 bg-slate-50 rounded-xl'>
-                            <h2 onClick={() => itemShow(item.id)} id="accordion-collapse-heading-1">
-                                <button type="button" className="flex items-center justify-between w-full bg-white dark:bg-gray-700 dark:text-stone-200 p-2 font-medium text-left text-slate-800  rounded-t-xl dark:border-gray-700 dark:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                                    <span className='flex mi:text-lg gap-2 items-center'><img src={item.image} alt="" className='w-4 mi:w-6' /> {item.name}</span>
-                                    <svg data-accordion-icon className={`w-6 h-6 ${showingCategory === item.id ? 'rotate-180' : 'rotate-0'}  shrink-0`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-collapse-body-1" className={`dark:bg-gray-500 dark:text-stone-100 ${showingCategory === item.id ? 'flex' : 'hidden'}`} aria-labelledby="accordion-collapse-heading-1">
-                                <div className="p-2 w-full">
-                                    {categoryData.length ?
-                                        <table className='w-full'>
-                                            <thead>
-                                                <th className='flex w-full text-sm mi:text-base justify-around   '>
-                                                    <td className='mi:w-1/4 w-1/3 '>کشور</td>
-                                                    <td className='mi:w-1/4 w-1/3 '>قیمت</td>
-                                                    <td className='mi:w-1/4 w-1/3 '>موجودی</td>
-                                                    <td className=' mi:w-1/4 w-1/3 '></td>
-                                                </th>
-                                            </thead>
-                                            <tbody className='text-sm font-bold '>
-                                                {categoryData.map(item =>
-                                                    <tr key={item.id} className='flex items-center w-full bg-gray-200 dark:bg-gray-600 flex-wrap my-2 py-2 rounded-md justify-around '>
-                                                        <td className='flex items-center flex-col mi:w-1/4 gap-2 w-1/4'>
-                                                            <img className='w-6 h-6'
-                                                                src={props.country.filter(country => country.id === item.country)[0].image}
-                                                                alt="" />
-                                                            <h2 className="text-xs lg:text-sm">
-                                                                {props.country.filter(country => country.id === item.country)[0].name}
-                                                            </h2>
-                                                        </td>
-                                                        <td className='mi:w-1/4 mi:text-xs lg:text-base w-1/4 text-sm flex flex-col items-center'>
-
-                                                            {convertDigitsEnToFa(numericalSeparator(item.amount.toString(), 3, ','))} <span className='text-[10px] text-slate-600 dark:text-slate-300'> تومان</span>
-                                                        </td>
-                                                        <td className='mi:w-1/4 mi:text-xs lg:text-base w-1/4 flex flex-col items-center'>
-
-                                                            {convertDigitsEnToFa(numericalSeparator(item.count.toString(), 3, ','))} <span className='text-[10px] text-slate-600 dark:text-slate-300'> عدد</span>
-                                                        </td>
-                                                        <td className='mi:w-1/6'>
-                                                            <button onClick={BuyHandler} className='p-1 px-3 mt- mi:mt-0 text-xs mi:text-sm rounded-lg bg-blue-600 text-white '>خرید</button>
-                                                        </td>
-                                                    </tr>
-                                                )}
-
-                                            </tbody>
-                                        </table>
-                                        :
-                                        <img className='w-8 m-auto' src="/img/loader.gif" alt="" />
-                                    }
-                                </div>
+            <div className='max-w-6xl m-auto'>
+                <div className='bg-slate-300 dark:bg-slate-800 mt-40 mx-8 rounded-xl py-6'>
+                    <div className='pt-8 text-base md:text-2xl mx-4'>
+                        <h2 className='text-center mb-8 text-xl md:text-3xl border-b border-gray-600 p-4 cursor-default'>Welcome to power society PSY</h2>
+                        <div className="m-auto md:grid grid-cols-2 gap-4">
+                            <div className=' px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>
+                                <p className='hover:-translate-y-4 duration-500 cursor-default'>Voting on Token Lock in a Decentralized Exchange: Should this feature be enabled?</p>
+                            </div>
+                            <div className=' px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>
+                                <p className='hover:-translate-y-4 duration-500 cursor-default'>Token Ownership Allocation: What percentage of control should be given to the community?</p>
+                            </div>
+                            <div className=' px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>
+                                <p className='hover:-translate-y-4 duration-500 cursor-default'>This is the first voting in the Power Society project, addressing the possibility of locking tokens in a decentralized exchange. Community members can decide whether this feature should be made available or not.</p>
+                            </div>
+                            <div className=' px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>
+                                <p className='hover:-translate-y-4 duration-500 cursor-default'>In this voting, community members have the ability to choose the percentage of token ownership allocation. The options include 0.1%, 0.25%, 0.5%, and 1%. This voting allows the community to determine their level of control and influence over the project.</p>
                             </div>
                         </div>
-                    )}
+                    </div>
                 </div>
-
             </div>
 
-        </div >
+            <div className='text-center'>
+                <button className='my-16 px-20 py-3 md:px-48 md:py-4 hover:border-4 border-blue-800 dark:border-blue-400  duration-200  bg-blue-600 text-gray-200 md:text-lg rounded-2xl'>
+                    <h2>Vote</h2>
+                </button>
+            </div>
+
+            <div className='text-center max-w-4xl px-6 md:px-12 text-xl m-auto'>
+                <div className='mt-6 border-b border-gray-500 text-left pb-4 font-bold'>
+                    <p>Free Token Airdrop for the Community: What is the desired percentage of free distribution?</p>
+                </div>
+                <div className='mt-6 border-b border-gray-500 text-left pb-4 font-bold'>
+                    <p>In this voting, the community can choose the percentage of tokens to be distributed for free as an airdrop to community members. The options include 1%, 3%, 6%, 7%, and 10% of the total tokens. Community members can decide how much of the tokens should be made available for free to the community.</p>
+                </div>
+                <div className='mt-6 border-b border-gray-500 text-left pb-4 font-bold'>
+                    <p>To stay updated on the latest news, vote , and activities of the community, follow us on social media platforms such as </p>
+                </div>
+            </div>
+
+            <div className='flex justify-around gap-8 md:gap-20 w-1/2 m-auto mt-16 '>
+                <a href="https://www.reddit.com/user/PowerSociety/">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='w-10 md:w-20 hover:-translate-y-2 duration-300 ' viewBox="0 0 24 24"><path d="M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.286-1.84.746-1.81-1.191-4.259-1.949-6.971-2.046l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.975-2.164-2.172-2.164c-.92 0-1.704.574-2.021 1.379l-4.329-1.015c-.189-.046-.381.063-.44.249l-1.654 5.207c-2.838.034-5.409.798-7.3 2.025-.474-.438-1.103-.712-1.799-.712-1.465 0-2.656 1.187-2.656 2.646 0 .97.533 1.811 1.317 2.271-.052.282-.086.567-.086.857 0 3.911 4.808 7.093 10.719 7.093s10.72-3.182 10.72-7.093c0-.274-.029-.544-.075-.81.832-.447 1.405-1.312 1.405-2.318zm-17.224 1.816c0-.868.71-1.575 1.582-1.575.872 0 1.581.707 1.581 1.575s-.709 1.574-1.581 1.574-1.582-.706-1.582-1.574zm9.061 4.669c-.797.793-2.048 1.179-3.824 1.179l-.013-.003-.013.003c-1.777 0-3.028-.386-3.824-1.179-.145-.144-.145-.379 0-.523.145-.145.381-.145.526 0 .65.647 1.729.961 3.298.961l.013.003.013-.003c1.569 0 2.648-.315 3.298-.962.145-.145.381-.144.526 0 .145.145.145.379 0 .524zm-.189-3.095c-.872 0-1.581-.706-1.581-1.574 0-.868.709-1.575 1.581-1.575s1.581.707 1.581 1.575-.709 1.574-1.581 1.574z" fill="currentColor"></path></svg>
+                </a>
+                <a href="https://medium.com/@power1society"><svg xmlns="http://www.w3.org/2000/svg" className='w-10 h-10 md:w-20 md:h-20 hover:-translate-y-2 duration-300' viewBox="0 0 24 16" fill="none">
+                    <path d="M6.76875 0.900848C3.03049 0.900848 0 4.0794 0 7.99999C0 11.9206 3.03071 15.0991 6.76875 15.0991C10.5068 15.0991 13.5375 11.9208 13.5375 7.99999C13.5375 4.07917 10.5072 0.900848 6.76875 0.900848ZM17.5781 1.31671C15.7089 1.31671 14.1939 4.30964 14.1939 8.00011C14.1939 11.6906 15.7092 14.6837 17.5784 14.6837C19.4475 14.6837 20.9628 11.6908 20.9628 8.00011H20.9625C20.9625 4.30858 19.4475 1.31671 17.5782 1.31671H17.5781ZM22.8096 2.01284C22.1524 2.01284 21.6195 4.69362 21.6195 8.00011C21.6195 11.3066 22.152 13.9874 22.8096 13.9874C23.4672 13.9874 24 11.3059 24 7.99999C24 4.69339 23.4669 2.01284 22.8097 2.01284H22.8096Z" fill="currentColor"></path>
+                </svg></a>
+                <a href="https://t.me/powerSocietytelegram"><svg className='w-10 md:w-20 hover:-translate-y-2 duration-300' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.37097 0 0 5.37097 0 12C0 18.629 5.37097 24 12 24C18.629 24 24 18.629 24 12C24 5.37097 18.629 0 12 0ZM17.8935 8.22097L15.9242 17.5016C15.779 18.1597 15.3871 18.3194 14.8403 18.0097L11.8403 15.7984L10.3935 17.1919C10.2339 17.3516 10.0984 17.4871 9.78871 17.4871L10.0016 14.4339L15.5613 9.41129C15.8032 9.19839 15.5081 9.07742 15.1887 9.29032L8.31774 13.6161L5.35645 12.6919C4.7129 12.4887 4.69839 12.0484 5.49194 11.7387L17.0613 7.27742C17.5984 7.08387 18.0677 7.40806 17.8935 8.22097Z" fill="currentColor"></path>
+                </svg></a>
+                <a href="https://twitter.com/power_society_"><svg className='w-10 md:w-20 hover:-translate-y-2 duration-300' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.5331 7.11165C21.5483 7.32484 21.5483 7.53807 21.5483 7.75126C21.5483 14.2538 16.5991 21.7462 7.55333 21.7462C4.7665 21.7462 2.17768 20.9391 0 19.5381C0.395955 19.5838 0.776628 19.599 1.18782 19.599C3.48728 19.599 5.60407 18.8224 7.29444 17.4975C5.13199 17.4518 3.31979 16.0356 2.69542 14.0863C3.00001 14.132 3.30456 14.1624 3.62439 14.1624C4.066 14.1624 4.50766 14.1015 4.9188 13.9949C2.66499 13.538 0.974582 11.5584 0.974582 9.1675V9.10661C1.62938 9.47209 2.39087 9.70052 3.19792 9.73094C1.87304 8.84767 1.00505 7.34007 1.00505 5.63447C1.00505 4.72078 1.24866 3.88321 1.67508 3.15224C4.09642 6.13702 7.73605 8.08623 11.8172 8.29946C11.7411 7.93398 11.6954 7.55331 11.6954 7.17259C11.6954 4.46189 13.8883 2.25378 16.6142 2.25378C18.0304 2.25378 19.3096 2.84769 20.2081 3.80709C21.3198 3.5939 22.3858 3.18271 23.33 2.61927C22.9644 3.76143 22.1878 4.72082 21.1675 5.32992C22.1574 5.22337 23.1168 4.9492 24 4.56853C23.3301 5.54311 22.4924 6.4111 21.5331 7.11165Z" fill="currentColor"></path>
+                </svg></a>
+            </div>
+
+            <div className='text-center max-w-4xl mt-20 px-6 md:px-12 text-xl m-auto'>
+                <div className='mt-6 border-b border-gray-500 text-left pb-4 font-bold'    >
+                    <p>Building Strong Communities, Creating Positive Change
+                    </p>
+                    <p>Power Society PSY</p>
+                </div>
+                <div className='mt-6 border-b border-gray-500 text-left pb-4 font-bold'    >
+                    <p>Unlocking the Power of Our Community: Join the Journey of Decentralized Token Revolution.</p>
+                </div>
+            </div>
+
+            <div className=' mt-32 md:text-lg max-w-5xl m-auto px-6 font-bold md:px-12'>
+                <div className=' bg-slate-300 dark:bg-slate-800 md:px-12 py-12 rounded-xl'>
+                    <p className='mx-4 px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>Join us as we introduce our secure and stable digital token project. Our token, named 'Community Power,' is set to be locked within a decentralized exchange. By locking the token in a decentralized exchange, we ensure increased security and prevent unauthorized access. This decision highlights our commitment to the safety and protection of our community members. The token being locked in a decentralized exchange allows for confident engagement and participation in the project.
+                    </p>
+                    <p className='mx-4 px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>This locking mechanism contributes to the token's stability and integrity. By preventing significant changes in token supply and distribution, we strive for sustainable development and long-term value for token holders.
+
+                    </p>
+                    <p className='mx-4 px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>Transparency and community participation are core values we uphold. We will keep our community informed of any updates or developments regarding the token lock to ensure their familiarity with the project's progress.
+
+                    </p>
+                    <p className='mx-4 px-4 py-4 shadow-md mb-3 dark:bg-gray-700  shadow-gray-400 dark:shadow-gray-800 rounded-xl'>Together, we embark on an exciting journey to redefine the possibilities of decentralized digital tokens. Let's unlock the power of our community!</p>
+                </div>
+            </div>
+
+            <div className=' max-w-4xl mt-20 px-6 md:px-12 text-xl m-auto '>
+                <div>
+                    <p>NOT TO MENTION...</p>
+                </div>
+                <div className='md: pl-12 pt-6'>
+                    <p>Exclusively for community members</p>
+                </div>
+                <div className='md:pl-24 pt-8'>
+                    <p>"Voting in POWER SOCIETY will have a significant impact on empowering the community. By participating in the elections, your power and influence over critical project decisions will increase. By placing trust in this project, you can contribute to the sustainable development of the community and realize values such as justice, transparency, and active participation. Voting in POWER SOCIETY not only focuses on strengthening your personal power and value but also strives to elevate all members and create a meaningful transformation in society. Additionally, participating in POWER SOCIETY elections helps create equal opportunities for individuals from all walks of life, from the less fortunate to the wealthy. So let's come together towards a powerful and equitable society and transform our aspirations into reality by casting your vote in POWER SOCIETY."
+
+                    </p>
+                </div>
+                <div className='text-right mt-8 ms:mt-20'>
+                    <button className='my-16 px-20 py-3 md:px-20 md:py-4 hover:border-4 border-blue-800 dark:border-blue-400  duration-200  bg-blue-600 text-gray-200 md:text-lg rounded-2xl'>Vote for a power society</button>
+                </div>
+            </div>
+
+            <div className=' mt-16 md:text-lg max-w-5xl m-auto px-6 font-bold md:px-12'>
+                <div className=' bg-slate-300 dark:bg-slate-800 px-4 md:px-12 py-12 rounded-xl'>
+                    <div>
+                        <p>What is Power Society PSY?</p>
+                        <p className='ml-8 mt-4'>Power Society (PSY): A community built on collaboration and transparency, driving towards the goal of creating a strong and dynamic presence in the crypto space. By providing more opportunities for participation in voting, analysis, and crypto-related discussions, we empower our members to progress together and share knowledge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className='max-w-4xl mt-20 px-6 text-center md:px-12 text-2xl md:text-4xl m-auto'>
+                <h3>Power Your Finances with Our Revolutionary Token</h3>
+            </div>
+
+            <MessageForm />
+
+        </div>
 
     )
 }
